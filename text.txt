@@ -1,0 +1,23 @@
+console.log(`Node JS got Data `);
+const spawn = require("child_process").spawn;
+
+const pythonProcess = spawn('python3', ["temp.py"]);
+pythonProcess.stdout.on('data', (data) => {
+// Do something with the data returned from python script
+
+console.log(`Node JS got Data ${data}`);
+console.log(`Type is : ${typeof data }`)
+
+// convert string to Json
+mystr = data.toString();
+console.log(`Data To String ${mystr} Type of ${ typeof mystr}`);
+
+myjson = JSON.parse(mystr);
+console.log(`JSON IS : ${myjson}`);
+console.log(myjson.Response);
+console.log(myjson.data);
+console.log(myjson.Message)
+})
+
+
+Age Sex cp trestbps chol fbs restecg thalach exang oldpeak slope ca thal
